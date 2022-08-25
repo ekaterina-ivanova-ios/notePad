@@ -13,6 +13,8 @@ enum Mission {
 
 class EditOrCreateNoteViewController: UIViewController {
     
+    var delegate: ViewControllerDelegateProtocol?
+    
     private var mission: Mission
     
     private var textView: UITextView = {
@@ -34,5 +36,19 @@ class EditOrCreateNoteViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension EditOrCreateNoteViewController {
+    
+    
+    func createOrEditNote() {
+        //если пользователь нажал на кнопку add, то создаем новую ячейку
+        if {
+        delegate?.createNote()
+        } else {
+        //созраняем изменения в существующей ячейке
+        delegate?.editNote()
+        }
     }
 }

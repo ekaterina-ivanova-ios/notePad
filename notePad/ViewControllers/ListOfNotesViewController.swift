@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  notePad
-//
-//  Created by Екатерина Иванова on 23.08.2022.
-//
-
 import UIKit
 
 
@@ -16,6 +9,7 @@ final class ListOfNotesViewController: UIViewController {
     
     private var notes: [NoteModel] = [NoteModel(text: "Go to shop", dateOfCreation: Date()),
                                       NoteModel(text: "Go to shop2", dateOfCreation: Date())]
+    //private var notes: [NoteModel] = []
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
@@ -24,8 +18,14 @@ final class ListOfNotesViewController: UIViewController {
         return tableView
     }()
     
-//    private lazy var label: {
-
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.text = "Количество заметок: 0"
+        label.frame = CGRect(x: 60, y: 100, width: 200, height: 20)
+        //label.frame = view.frame
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ final class ListOfNotesViewController: UIViewController {
             setupViewFor(state: .notEmpty)
         }
     }
-
+    
     private func setupViewFor(state: StateOfList) {
         switch state {
         case .empty:
@@ -51,7 +51,8 @@ final class ListOfNotesViewController: UIViewController {
     
     // создается пустое вью
     private func setupEmptyView() {
-        
+        view.addSubview(label)
+        view.backgroundColor = .systemPink
     }
     
     // создается табличка
@@ -85,9 +86,22 @@ extension ListOfNotesViewController: UITableViewDelegate, UITableViewDataSource 
     
     // этот метод автоматически вызывается при нажатии на ячейку, также передается индекс паф ячейки
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = EditOrCreateNoteViewController(mission: .create, note: NoteModel)
+        //        let vc = EditOrCreateNoteViewController(mission: .create, note: NoteModel)
         let vc = EditOrCreateNoteViewController(mission: .create)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+extension ListOfNotesViewController: ViewControllerDelegateProtocol {
+    func createNote() {
+        //необходимо добавить новую ячейку в таблицу
+        print("create")
+    }
+    
+    func editNote() {
+        //необходимо обновить ячейку в таблице
+        print("edit")
     }
     
 }
