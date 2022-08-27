@@ -61,10 +61,12 @@ final class ListOfNotesViewController: UIViewController {
         tableView.frame = view.frame
     }
     
-    // нажатие на кнопку в навигеййшн баре
+    // нажатие на кнопку в навигейшн баре
     @objc func addTapped() {
         let vc = EditOrCreateNoteViewController(mission: .create)
+        vc.delegate = self
         
+        //Помещает контроллер представления в стек приемника и обновляет отображение.
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -93,13 +95,13 @@ extension ListOfNotesViewController: UITableViewDelegate, UITableViewDataSource 
     
 }
 
-extension ListOfNotesViewController: ViewControllerDelegateProtocol {
-    func createNote() {
+extension ListOfNotesViewController: ViewControllerDelegate {
+    func createNote(tableView: ListOfNotesViewController) {
         //необходимо добавить новую ячейку в таблицу
         print("create")
     }
     
-    func editNote() {
+    func editNote(tableView: ListOfNotesViewController)  {
         //необходимо обновить ячейку в таблице
         print("edit")
     }

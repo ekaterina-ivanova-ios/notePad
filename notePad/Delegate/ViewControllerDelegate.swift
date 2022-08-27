@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ViewControllerDelegateProtocol {
-    func createNote()
-    func editNote()
+protocol ViewControllerDelegate {
+    func createNote(tableView: ListOfNotesViewController)
+    func editNote(tableView: ListOfNotesViewController)
 }

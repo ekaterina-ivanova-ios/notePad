@@ -13,7 +13,7 @@ enum Mission {
 
 class EditOrCreateNoteViewController: UIViewController {
     
-    var delegate: ViewControllerDelegateProtocol?
+    var delegate: ViewControllerDelegate?
     
     private var mission: Mission
     
@@ -42,13 +42,14 @@ class EditOrCreateNoteViewController: UIViewController {
 extension EditOrCreateNoteViewController {
     
     
-    func createOrEditNote() {
-        //если пользователь нажал на кнопку add, то создаем новую ячейку
-        if {
-        delegate?.createNote()
-        } else {
-        //созраняем изменения в существующей ячейке
-        delegate?.editNote()
-        }
-    }
+//    func createOrEditNote() {
+//        let i = 1
+//        //если пользователь нажал на кнопку add, то создаем новую ячейку??
+//        if i > 0 {
+//        delegate?.createNote(tableView: ListOfNotesViewController)
+//        } else {
+//        //созраняем изменения в существующей ячейке -- от чего отталкиваемся?
+//        delegate?.editNote(tableView: ListOfNotesViewController)
+//        }
+//    }
 }
