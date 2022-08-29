@@ -41,6 +41,11 @@ class NoteCell: UITableViewCell {
             noteLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             noteLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
         ])
+        contentView.addSubview(dateLabel)
+        NSLayoutConstraint.activate([
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
+        ])
     }
     
     func configureCell(cellModel: NoteCellModel) {
