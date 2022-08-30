@@ -9,5 +9,5 @@ import Foundation
 
 struct NoteModel {
     let text: String
-    let dateOfCreation: Date
+    let dateOfCreation: String
 }

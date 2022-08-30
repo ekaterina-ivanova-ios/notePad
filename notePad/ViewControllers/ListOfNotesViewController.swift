@@ -86,9 +86,9 @@ extension ListOfNotesViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as? NoteCell
         guard let notes = notes else { return UITableViewCell() }
         let note = notes[indexPath.row]
-        let dateFormatter = DateFormatter()
-        let stringDate = dateFormatter.string(from: note.date)
-        let cellModel = NoteCellModel(noteLabelText: note.text, dateLabelText: stringDate)
+//        let dateFormatter = DateFormatter()
+//        let stringDate = dateFormatter.string(from: note.date)
+        let cellModel = NoteCellModel(noteLabelText: note.text, dateLabelText: note.date)
         cell?.configureCell(cellModel: cellModel)
         return cell ?? UITableViewCell()
     }

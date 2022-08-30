@@ -64,7 +64,11 @@ extension EditOrCreateNoteViewController {
             try! realm.write {
                 let note = NoteModelRealm()
                 note.text = textView.text
-                note.date = Date()
+                let dateDate = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "YY/MM/dd"
+                let dateString = dateFormatter.string(from: dateDate)
+                note.date = dateString
                 realm.add(note)
             }
             
@@ -82,7 +86,12 @@ extension EditOrCreateNoteViewController {
                 realm.delete(note)
                 let noteToAdd = NoteModelRealm()
                 noteToAdd.text = textView.text
-                noteToAdd.date = Date()
+                let dateDate = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "YY/MM/dd"
+                let dateString = dateFormatter.string(from: dateDate)
+                noteToAdd.date = dateString
+                //noteToAdd.date = Date()
                 realm.add(noteToAdd)
             }
             
